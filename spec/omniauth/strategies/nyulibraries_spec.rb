@@ -57,6 +57,9 @@ module OmniAuth
             expect(last_response.location).to start_with(login_authorization)
           end
         end
+        describe '/auth/nyulibraries/callback' do
+          before
+        end
       end
     end
   end
