@@ -8,14 +8,6 @@ require 'omniauth'
 require 'omniauth-nyulibraries'
 require 'pry'
 
-def application_id
-  @application_id ||= ENV["NYULIBRARIES_APPLICATION_ID"]
-end
-
-def application_secret
-  @application_secret ||= ENV["NYULIBRARIES_APPLICATION_SECRET"]
-end
-
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.extend OmniAuth::Test::StrategyMacros, :type => :strategy

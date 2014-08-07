@@ -85,6 +85,8 @@ module OmniAuth
         end
       end
       context "when the strategy is used as middleware" do
+        let(:application_id)      { ENV["NYULIBRARIES_APPLICATION_ID"] }
+        let(:application_secret)  { ENV["NYULIBRARIES_APPLICATION_SECRET"] }
         let(:app) do
           args = [application_id, application_secret]
           Rack::Builder.new {
