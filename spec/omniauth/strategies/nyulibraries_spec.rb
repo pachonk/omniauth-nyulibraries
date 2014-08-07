@@ -4,7 +4,22 @@ module OmniAuth
     describe Nyulibraries do
       context "when the configuration comes correct" do
         let(:config) { {} }
-        subject(:strategy) { OmniAuth::Strategies::Nyulibraries.new(nil, config) }
+        let(:response) do
+          double("response", parsed: {
+              "username" => "username",
+              "email" => "email",
+              "provider" => "provider",
+              "identities" => "identities"
+            })
+        end
+        let(:access_token) { double('access_token', :get => response) }
+        subject(:strategy) do
+          OmniAuth::Strategies::Nyulibraries.new(nil, config).tap do |strategy|
+            allow(strategy).to receive(:access_token) {
+              access_token
+            }
+          end
+        end
         describe '#name' do
           subject { strategy.name }
           it { should_not be_nil }
@@ -32,6 +47,41 @@ module OmniAuth
                 "authorize_path" => "/oauth/authorize" }) }
             end
           end
+        end
+        describe 'uid' do
+          subject(:uid) {strategy.uid}
+          it { should_not be_nil }
+          it { should eq("username")}
+        end
+        describe 'info' do
+          subject(:info) {strategy.info}
+          it { should_not be_nil }
+          it { should be_a(Hash) }
+          it { should eq({
+              name: "username",
+              nickname: "username",
+              email: "email"
+            })}
+        end
+        describe 'extra' do
+          subject(:extra) {strategy.extra}
+          it { should_not be_nil }
+          it { should be_a(Hash) }
+          it { should eq({
+              provider: "provider",
+              identities: "identities"
+            })}
+        end
+        describe 'raw_info' do
+          subject(:raw_info) {strategy.raw_info}
+          it { should_not be_nil }
+          it { should be_a(Hash) }
+          it { should eq({
+              "username" => "username",
+              "email" => "email",
+              "provider" => "provider",
+              "identities" => "identities"
+            })}
         end
       end
       context "when the strategy is used as middleware" do
