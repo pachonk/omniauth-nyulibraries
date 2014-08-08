@@ -8,7 +8,7 @@ module OmniAuth
       option :name, :nyulibraries
 
       option :client_options, {
-        site: "https://login.dev",
+        site: "https://dev.login.library.nyu.edu",
         authorize_path: "/oauth/authorize"
       }
 
@@ -17,7 +17,7 @@ module OmniAuth
       end
 
       info do
-        { 
+        {
           name: raw_info["username"],
           nickname: raw_info["username"],
           email: raw_info["email"]
