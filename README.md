@@ -86,3 +86,8 @@ Here is an example hash you can expect out of this strategy by using `request.en
   {"provider"=>:nyulibraries,
    "identities"=>nil},}
 ```
+
+## OAuth2
+### Now you're authenticating with power
+
+Congrats! Your app is now connected to the __NYU Libraries login service__. It’s an OAuth2 provider which means that it offers your client applications the ability to authenticate and request resources (e.g. _username_). Users can now authenticate from any one of the myriad login options __NYU Libraries login service__ offers, and your app will be able to properly identify them.
