@@ -6,6 +6,8 @@
 
 OmniAuth strategy for the NYU Libraries OAuth2 provider. Before installing in your application, be sure to have installed [OmniAuth](https://github.com/intridea/omniauth) and registered your application with [Login](https://github.com/NYULibraries/login/blob/feature/client_documentation/GETTING_STARTED.md).
 
+__NOTE:__ Your application must be registered with __NYU Libraries login service__ to use this strategy. Not all clients will be authorized to use __NYU Libraries login service__.
+
 # Installation
 ## Gemfile
 In your Gemfile add:
