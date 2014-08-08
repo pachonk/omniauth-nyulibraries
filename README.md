@@ -89,6 +89,10 @@ Here is an example hash you can expect out of this strategy by using `request.en
    "identities"=>nil},}
 ```
 
+# Protocols
+
+Currently this strategy uses a development instance of the __NYU Libraries login service__ to authenticate. A protocol will be coming soon for which instances to access for your implementation.
+
 # OAuth2
 ## Now you're authenticating with power
 
