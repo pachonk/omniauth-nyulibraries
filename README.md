@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/NYULibraries/omniauth-nyulibraries.png)](https://codeclimate.com/github/NYULibraries/omniauth-nyulibraries)
 [![Coverage Status](https://coveralls.io/repos/NYULibraries/omniauth-nyulibraries/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/omniauth-nyulibraries)
 
-OmniAuth strategy for the NYU Libraries OAuth2 provider. Before installing in your app, be sure to have installed [OmniAuth](https://github.com/intridea/omniauth) and registered your app with [Login](https://github.com/NYULibraries/login/blob/feature/client_documentation/GETTING_STARTED.md).
+OmniAuth strategy for the NYU Libraries OAuth2 provider. Before installing in your application, be sure to have installed [OmniAuth](https://github.com/intridea/omniauth) and registered your application with [Login](https://github.com/NYULibraries/login/blob/feature/client_documentation/GETTING_STARTED.md).
 
 # Installation
 ## Gemfile
@@ -37,7 +37,7 @@ Devise.setup do |config|
 end
 ```
 
-Where `YOUR_APP_KEY` and `YOUR_APP_SECRET` are __Application Id__ and __Application Secret__ retrieved from registering your app in __Login__.
+Where `YOUR_APP_KEY` and `YOUR_APP_SECRET` are __Application Id__ and __Application Secret__ retrieved from registering your application in __Login__.
 
 ## Configuration
 
@@ -90,4 +90,6 @@ Here is an example hash you can expect out of this strategy by using `request.en
 ## OAuth2
 ### Now you're authenticating with power
 
-Congrats! Your app is now connected to the __NYU Libraries login service__. It’s an OAuth2 provider which means that it offers your client applications the ability to authenticate and request resources (e.g. _username_). Users can now authenticate from any one of the myriad login options __NYU Libraries login service__ offers, and your app will be able to properly identify them.
+Congrats! Your application is now connected to the __NYU Libraries login service__. It’s an OAuth2 provider which means that it follows an [open standard](http://oauth.net/2/) that offers your client applications the ability to authenticate and request resources (e.g. _username_). Users can now authenticate from any one of the myriad login options __NYU Libraries login service__ offers, and your application will be able to properly identify them.
+
+Using `Omniauth`, this strategy give you the resource `omniauth.auth`, which is a hash (as you can see [here](https://github.com/NYULibraries/omniauth-nyulibraries/tree/feature/documentation#example-auth-hash)) that gives you information about the authenticated user. What this means is that users no longer have to be restricted to be registered on your application!
