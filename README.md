@@ -69,7 +69,7 @@ end
 
 `LOGIN_URL` would be the URL for __Login__, and `AUTHORIZE_PATH` would be the authorization path you want to use.
 
-## Example Auth Hash
+# Example Auth Hash
 
 Here is an example hash you can expect out of this strategy by using `request.env['omniauth.auth']`:
 
@@ -89,8 +89,8 @@ Here is an example hash you can expect out of this strategy by using `request.en
    "identities"=>nil},}
 ```
 
-## OAuth2
-### Now you're authenticating with power
+# OAuth2
+## Now you're authenticating with power
 
 Congrats! Your application is now connected to the __NYU Libraries login service__. It’s an OAuth2 provider which means that it follows an [open standard](http://oauth.net/2/) that offers your client applications the ability to authenticate and request resources (e.g. _username_). Users can now authenticate from any one of the myriad login options __NYU Libraries login service__ offers, and your application will be able to properly identify them.
 
