@@ -96,6 +96,7 @@ module OmniAuth
           }.to_app
         end
         let(:session) { last_request.env['rack.session'] }
+        let(:callback) {last_request.env["omniauth.strategy"].callback_url}
         describe '/auth/nyulibraries' do
           before(:each){ get '/auth/nyulibraries' }
           let(:login_authorization) do
@@ -107,6 +108,9 @@ module OmniAuth
             expect(last_response).to be_redirect
             expect(last_response.status).to be(302)
             expect(last_response.location).to start_with(login_authorization)
+          end
+          it 'should have a callback url' do
+            expect(callback).to eq("http://example.org/auth/nyulibraries/callback")
           end
         end
       end
