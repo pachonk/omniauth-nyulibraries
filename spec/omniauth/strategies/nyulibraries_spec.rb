@@ -103,14 +103,11 @@ module OmniAuth
               "&redirect_uri=http%3A%2F%2Fexample.org%2Fauth%2Fnyulibraries%2Fcallback&"+
                 "response_type=code&"
           end
-          it 'should redirect to login authoriztion' do
+          it 'should redirect to login authorization' do
             expect(last_response).to be_redirect
             expect(last_response.status).to be(302)
             expect(last_response.location).to start_with(login_authorization)
           end
-        end
-        describe '/auth/nyulibraries/callback' do
-          before
         end
       end
     end
