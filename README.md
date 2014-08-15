@@ -6,7 +6,8 @@
 
 OmniAuth strategy for the NYU Libraries OAuth2 provider. Before installing in your application, be sure to have installed [OmniAuth](https://github.com/intridea/omniauth) and registered your application with [Login](https://github.com/NYULibraries/login/blob/feature/client_documentation/GETTING_STARTED.md).
 
-__NOTE:__ Your application must be registered with __NYU Libraries login service__ to use this strategy. Not all clients will be authorized to use __NYU Libraries login service__.
+__NOTE:__ Your application must be registered with NYU Libraries login service to use this strategy.
+Instructions for registering clients are coming soon.
 
 # Installation
 ## Gemfile
@@ -39,11 +40,11 @@ Devise.setup do |config|
 end
 ```
 
-Where `YOUR_APP_KEY` and `YOUR_APP_SECRET` are __Application Id__ and __Application Secret__ retrieved from registering your application in __Login__.
+Where `YOUR_APP_KEY` and `YOUR_APP_SECRET` are the __Application Id__ and __Application Secret__ you received at registration.
 
 ## Configuration
 
-By default, `omniauth-nyulibraries` authenticates from __"https://dev.login.library.nyu.edu"__, and uses __"/oauth/authorize"__ as the authorization path. If you want to authenticate from a different instance of Login,
+By default, `omniauth-nyulibraries` authenticates from https://dev.login.library.nyu.edu, and uses "/oauth/authorize" as the authorization path. If you want to authenticate from a different instance of Login,
 use the `:client_options` option when you add the provider to your app.
 
 ```ruby
@@ -56,7 +57,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
-And in `Devise`:
+And in Devise:
 
 ```ruby
 Devise.setup do |config|
@@ -67,7 +68,7 @@ Devise.setup do |config|
 end
 ```
 
-`LOGIN_URL` would be the URL for __Login__, and `AUTHORIZE_PATH` would be the authorization path you want to use.
+`LOGIN_URL` would be the URL for Login, and `AUTHORIZE_PATH` would be the authorization path you want to use.
 
 # Example Auth Hash
 
@@ -91,11 +92,11 @@ Here is an example hash you can expect out of this strategy by using `request.en
 
 # Protocols
 
-Currently this strategy uses a development instance of the __NYU Libraries login service__ to authenticate. A protocol will be coming soon for which instances to access for your implementation.
+Currently this strategy uses a development instance of the NYU Libraries login service to authenticate. A protocol will be coming soon for which instances to access for your implementation.
 
 # OAuth2
 ## Now you're authenticating with power
 
-Congrats! Your application is now connected to the __NYU Libraries login service__. It’s an OAuth2 provider which means that it follows an [open standard](http://oauth.net/2/) that offers your client applications the ability to authenticate and request resources (e.g. _username_). Users can now authenticate from any one of the myriad login options __NYU Libraries login service__ offers, and your application will be able to properly identify them.
+Congrats! Your application is now connected to the NYU Libraries login service. It’s an OAuth2 provider which means that it follows an [open standard](http://oauth.net/2/) that offers your client applications the ability to authenticate and request resources (e.g. _username_). Users can now authenticate from any one of the myriad login options NYU Libraries login service offers, and your application will be able to properly identify them.
 
 Using `Omniauth`, this strategy give you the resource `omniauth.auth`, which is a hash (as you can see [here](https://github.com/NYULibraries/omniauth-nyulibraries/tree/feature/documentation#example-auth-hash)) that gives you information about the authenticated user. What this means is that users no longer have to be restricted to be registered on your application!
