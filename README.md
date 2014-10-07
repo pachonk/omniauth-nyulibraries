@@ -14,7 +14,7 @@ Instructions for registering clients are coming soon.
 In your Gemfile add:
 
 ```ruby
-gem 'omniauth-nyulibraries'
+gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries'
 ```
 
 Then run `bundle install`
