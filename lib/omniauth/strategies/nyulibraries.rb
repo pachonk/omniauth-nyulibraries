@@ -26,7 +26,8 @@ module OmniAuth
       extra do
         {
           provider: raw_info["provider"],
-          identities: raw_info["identities"]
+          identities: raw_info["identities"],
+          institution_code: raw_info["institution_code"]
         }
       end
 
