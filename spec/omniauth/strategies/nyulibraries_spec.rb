@@ -10,7 +10,9 @@ module OmniAuth
               "email" => "email",
               "provider" => "provider",
               "identities" => "identities",
-              "institution_code" => "institution_code"
+              "institution_code" => "institution_code",
+              "first_name" => "first_name",
+              "last_name" => "last_name"
             })
         end
         let(:access_token) { double('access_token', :get => response) }
@@ -61,7 +63,9 @@ module OmniAuth
           it { should eq({
               name: "username",
               nickname: "username",
-              email: "email"
+              email: "email",
+              first_name: "first_name",
+              last_name: "last_name"
             })}
         end
         describe 'extra' do
@@ -83,7 +87,9 @@ module OmniAuth
               "email" => "email",
               "provider" => "provider",
               "identities" => "identities",
-              "institution_code" => "institution_code"
+              "institution_code" => "institution_code",
+              "first_name" => "first_name",
+              "last_name" => "last_name"
             })}
         end
       end
