@@ -21,8 +21,8 @@ module OmniAuth
           name: raw_info["username"],
           nickname: raw_info["username"],
           email: raw_info["email"],
-          first_name: raw_info["first_name"],
-          last_name: raw_info["last_name"],
+          first_name: last_name,
+          last_name: first_name
         }
       end
       extra do
@@ -36,6 +36,18 @@ module OmniAuth
       def raw_info
         response = access_token.get("/api/v1/user")
         @raw_info ||= response.parsed
+      end
+
+      def provider_identity
+        @provider_identity ||= raw_data["identities"].find {|id| id["provider"] == raw_data["provider"]}
+      end
+
+      def last_name
+        @last_name ||= provider_identity["properties"]["last_name"] rescue nil
+      end
+
+      def first_name
+        @first_name ||= provider_identity["properties"]["first_name"] rescue nil
       end
     end
   end
