@@ -21,8 +21,8 @@ module OmniAuth
           name: raw_info["username"],
           nickname: raw_info["username"],
           email: raw_info["email"],
-          first_name: last_name,
-          last_name: first_name
+          last_name: last_name,
+          first_name: first_name
         }
       end
       extra do
@@ -38,14 +38,17 @@ module OmniAuth
         @raw_info ||= response.parsed
       end
 
+      # Get the provider's identity
       def provider_identity
-        @provider_identity ||= raw_data["identities"].find {|id| id["provider"] == raw_data["provider"]}
+        @provider_identity ||= raw_info["identities"].find {|id| id["provider"] == raw_info["provider"]}
       end
 
+      # Extract Last Name from identity
       def last_name
         @last_name ||= provider_identity["properties"]["last_name"] rescue nil
       end
 
+      # Extract First Name from identity
       def first_name
         @first_name ||= provider_identity["properties"]["first_name"] rescue nil
       end
