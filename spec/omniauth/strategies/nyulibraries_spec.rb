@@ -37,7 +37,7 @@ module OmniAuth
             it { should be_a(Hash) }
             it { should_not be_empty }
             context "when default" do
-              it { should eq({ "site" => "https://dev.login.library.nyu.edu",
+              it { should eq({ "site" => "https://login.library.nyu.edu",
                 "authorize_path" => "/oauth/authorize" }) }
             end
             context "when production" do
@@ -105,7 +105,7 @@ module OmniAuth
         describe '/auth/nyulibraries' do
           before(:each){ get '/auth/nyulibraries' }
           let(:login_authorization) do
-            "https://dev.login.library.nyu.edu/oauth/authorize?client_id=#{application_id}"+
+            "https://login.library.nyu.edu/oauth/authorize?client_id=#{application_id}"+
               "&redirect_uri=http%3A%2F%2Fexample.org%2Fauth%2Fnyulibraries%2Fcallback&"+
                 "response_type=code&"
           end

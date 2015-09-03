@@ -44,7 +44,7 @@ Where `YOUR_APP_KEY` and `YOUR_APP_SECRET` are the __Application Id__ and __Appl
 
 ## Configuration
 
-By default, `omniauth-nyulibraries` authenticates from https://dev.login.library.nyu.edu, and uses "/oauth/authorize" as the authorization path. If you want to authenticate from a different instance of Login,
+By default, `omniauth-nyulibraries` authenticates from https://login.library.nyu.edu, and uses "/oauth/authorize" as the authorization path. If you want to authenticate from a different instance of Login,
 use the `:client_options` option when you add the provider to your app.
 
 ```ruby
