@@ -38,6 +38,12 @@ module OmniAuth
         @raw_info ||= response.parsed
       end
 
+      # Pass querystring from client to provider
+      def authorize_params
+        querystring_hash = Rack::Utils.parse_nested_query(request.query_string[/institution=(\w+)/,0])
+        super.merge(querystring_hash)
+      end
+
       # Get the provider's identity
       def provider_identity
         @provider_identity ||= raw_info["identities"].find {|id| id["provider"] == raw_info["provider"]}
