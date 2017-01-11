@@ -5,3 +5,6 @@ rvm:
   - 2.1.0
   - jruby-19mode
   - rbx
+env:
+  global:
+    - NYULIBRARIES_APPLICATION_ID=app_id
