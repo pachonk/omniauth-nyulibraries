@@ -6,9 +6,13 @@ rvm:
   - 2.3.3
   - 2.4.0
   # - jruby-19mode
-  - rbx-2.3.0
-gemfile:
+  - rbx-2
+before_install:
+  - gem update --system
+  - gem --version
 matrix:
+  allow_failures:
+    - rvm: rbx-2
   include:
   - rvm: 1.9.3
     gemfile: Gemfile.ruby19
