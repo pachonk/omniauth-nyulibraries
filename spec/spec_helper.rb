@@ -1,7 +1,9 @@
 $:.unshift File.expand_path('..', __FILE__)
 $:.unshift File.expand_path('../../lib', __FILE__)
-require 'coveralls'
-Coveralls.wear!
+if RUBY_VERSION >= '2.0.0'
+  require 'coveralls'
+  Coveralls.wear!
+end
 require 'rspec'
 require 'rack/test'
 require 'omniauth'

@@ -1,0 +1,7 @@
+source 'http://rubygems.org'
+gemspec
+
+gem "pry", group: :development
+
+# XML parsing
+gem 'ox', '~> 2.1.0', platform: :ruby

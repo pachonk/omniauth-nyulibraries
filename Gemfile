@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gemspec
 
-gem "coveralls", "~> 0.7.0", require: false, group: :test
+gem "coveralls", "~> 0.7.0", require: false, group: :test, platform: :ruby
 gem "pry", group: :development
 
 platforms :rbx do
