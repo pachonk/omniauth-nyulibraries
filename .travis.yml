@@ -1,16 +1,20 @@
 language: ruby
 rvm:
   - 1.9.3
-    gemfile: spec/gemfiles/Gemfile.ruby19
-    env: ISOLATED=true
   - 2.1.10
   - 2.2.6
   - 2.3.3
   - 2.4.0
   - jruby-19mode
-    gemfile: spec/gemfiles/Gemfile.ruby19
-    env: ISOLATED=true
   - rbx
+matrix:
+  exclude:
+  - rvm: 1.9.3
+    gemfile: Gemfile.ruby19
+    env: ISOLATED=true
+  - rvm: jruby-19mode
+    gemfile: Gemfile.ruby19
+    env: ISOLATED=true
 env:
   global:
     - NYULIBRARIES_APPLICATION_ID=app_id
