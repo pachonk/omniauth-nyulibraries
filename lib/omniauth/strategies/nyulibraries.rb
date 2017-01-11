@@ -3,7 +3,9 @@ module OmniAuth
     require 'omniauth-oauth2'
     class Nyulibraries < OmniAuth::Strategies::OAuth2
       if defined?(::Rails) && ::Rails.env.development?
-        OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+        silence_warnings do
+          OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+        end
       end
       option :name, :nyulibraries
 
