@@ -7,8 +7,9 @@ rvm:
   - 2.4.0
   # - jruby-19mode
   - rbx
+gemfile:
 matrix:
-  exclude:
+  include:
   - rvm: 1.9.3
     gemfile: Gemfile.ruby19
     env: ISOLATED=true
