@@ -50,7 +50,7 @@ use the `:client_options` option when you add the provider to your app.
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :nyulibraries, YOUR_APP_KEY, YOUR_APP_SECRET,
-    {
+    client_options: {
       site: LOGIN_URL,
       authorize_path: AUTHORIZE_PATH
     }
