@@ -10,7 +10,7 @@ module OmniAuth
       option :name, :nyulibraries
 
       option :client_options, {
-        site: (ENV['LOGIN_URL'] || "https://login.library.nyu.edu"),
+        site: "http://localhost:3001",
         authorize_path: "/oauth/authorize"
       }
 
